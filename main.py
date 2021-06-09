@@ -131,7 +131,8 @@ def scale(mat, nx_target):
     ny_target = int(round(ny / factor)) + 1
     # print("scaling to ", nx_target, ny_target)
     # new mat
-    res = [[0 for _ in range(ny_target)] for _ in range(nx_target)]
+    res = [[set() for _ in range(ny_target)] for _ in range(nx_target)]
+    res1 = [[0 for _ in range(ny_target)] for _ in range(nx_target)]
 
     for i in range(nx):
         for j in range(ny):
@@ -148,7 +149,44 @@ def scale(mat, nx_target):
             #
             # For now, I'm just replacing it for simplicity. This might create
             # many dangling single nodes
-            res[ii][jj] = mat[i][j]
+            if mat[i][j] == 1:
+                res1[ii][jj] = 1
+            elif mat[i][j] == 0:
+                pass
+            else:
+                res[ii][jj].add(mat[i][j])
+    # merge
+    h = {}
+
+    def find(x):
+        if x in h:
+            return find(h[x])
+        else:
+            return x
+
+    def union(x, y):
+        x = find(x)
+        y = find(y)
+        if x != y:
+            h[x] = y
+
+    # construct disjoint set
+    for row in res:
+        for s in row:
+            if s:
+                x = s.pop()
+                for y in s:
+                    union(x, y)
+                # Add it back, this is ugly
+                s.add(x)
+    # convert the matrix
+    for i in range(len(res)):
+        for j in range(len(res[i])):
+            if not res[i][j]:
+                # 0 or 1
+                res[i][j] = res1[i][j]
+            else:
+                res[i][j] = find(res[i][j].pop())
     return res
 
 

@@ -178,7 +178,11 @@ def file2mat(fname):
                     fmt="%d",
                 )
                 # sampled by index
-                sample = np.array(mat)[10:40, 10:40].tolist()
+                # get center
+                x, y = np.array(mat).shape
+                x = max(int(round(x / 2)) - 15, 0)
+                y = max(int(round(y / 2)) - 15, 0)
+                sample = np.array(mat)[x : x + 30, y : y + 30].tolist()
                 np.savetxt(
                     fname + "-" + layer + "-sampled.csv",
                     np.array(twoify(sample)),

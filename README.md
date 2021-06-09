@@ -40,6 +40,17 @@ python3 main.py /path/to/output.json # => generate csv files in output/ folder
 bash run.sh
 ```
 
+# Outputs
+
+The outputs are in `output/` folder. Each board has 8 `.csv` files: `F` and `B`
+stands for front layer and bottom layer.
+
+- `xxx.csv`: a large matrix (unscaled to 30x30), containing multi-pad nets
+  (not twoified)
+- `xxx-twoify.csv`: twoify the above large matrix
+- `xxx-scaled.csv`: scaled to x=30
+- `xxx-sampled.csv`: sampled 30x30 matrix in the center of the matrix.
+
 # Download github repos
 
 Run the following query to GitHub APIs to get a list of repos:

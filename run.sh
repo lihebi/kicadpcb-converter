@@ -24,9 +24,7 @@ for f in $files; do
     if [ -f $f ]; then
         # run racket
         if ! [ -f $json ]; then
-            # DEBUG not running main.rkt
-            # racket main.rkt $f $json
-            echo "skip"
+            racket main.rkt $f $json
         fi
         echo "... $json"
         if [ -f $json ]; then

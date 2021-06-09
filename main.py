@@ -21,12 +21,15 @@ def make_shift(x1, y1, grid):
 
 def add_to_matrix(mat, module, layer, shift):
     for pad in module["pads"]:
-        if pad["net"] and layer in pad["layers"]:
+        if layer in pad["layers"]:
             x = pad["x"] + module["x"]
             y = pad["y"] + module["y"]
             x, y = shift(x, y)
-            #             print(x,y)
-            mat[x][y] = pad["net"]
+            if pad["net"]:
+                mat[x][y] = pad["net"]
+            else:
+                # thet net is not connected, set to 1
+                mat[x][y] = 1
 
 
 # twoify(mat[10:40][15:45])
@@ -40,17 +43,21 @@ def twoify(mat):
     for row in mat:
         for i in range(len(row)):
             v = row[i]
-            if v != 0:
+            if v != 0 and v != 1:
                 if v in h:
                     if v in recorded:
-                        recorded.remove(row[i])
+                        recorded.remove(v)
                     else:
-                        h[row[i]] += 1
-                        recorded.add(row[i])
+                        h[v] += 1
+                        recorded.add(v)
                 else:
-                    h[row[i]] = 1
-                    recorded.add(row[i])
-                row[i] = str(row[i]) + "-" + str(h[row[i]])
+                    h[v] = 1
+                    recorded.add(v)
+                row[i] = str(v) + "-" + str(h[v])
+    # single ones
+    singles = set()
+    for v in recorded:
+        singles.add(str(v) + "-" + str(h[v]))
     # step 2: map string names to integer
     h = {}
     ct = 2
@@ -58,9 +65,9 @@ def twoify(mat):
     for row in mat:
         for i in range(len(row)):
             v = row[i]
-            if v != 0:
+            if v != 0 and v != 1:
                 # the recorded ones are not paired
-                if v in recorded:
+                if v in singles:
                     h[v] = 1
                 # assign a larger number
                 elif v not in h:
@@ -114,11 +121,13 @@ def file2mat(fname):
     with open(fname) as fp:
         jobj = json.load(fp)
         for layer in ["F", "B"]:
-            mat = twoify(board2mat(jobj, 30, layer))
-            # use numpy to save csv
-            np.savetxt(
-                fname + "-" + layer + ".csv", np.array(mat), delimiter=",", fmt="%d"
-            )
+            mat = board2mat(jobj, 30, layer)
+            if mat:
+                mat = twoify(mat)
+                # use numpy to save csv
+                np.savetxt(
+                    fname + "-" + layer + ".csv", np.array(mat), delimiter=",", fmt="%d"
+                )
 
 
 if __name__ == "__main__":

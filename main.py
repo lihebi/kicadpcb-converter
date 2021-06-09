@@ -72,10 +72,37 @@ def twoify(mat):
 
 def board2mat(jobj, SIZE, layer):
     #     SIZE = 30
-    x1, y1, x2, y2 = jobj["area"]
+    # FIXME the module center might be outside this area
+    # x1, y1, x2, y2 = jobj["area"]
+    #
+    # I'm going to use just the modules instead. So get the smallest and largest
+    # x and y, and inflate by 10% each side.
+    xs = []
+    ys = []
+    for module in jobj["modules"]:
+        for pad in module["pads"]:
+            xs.append(module["x"] + pad["x"])
+            ys.append(module["y"] + pad["y"])
+    if not xs or not ys:
+        print("Warning: no pads found")
+        return None
+    x1 = min(xs)
+    y1 = min(ys)
+    x2 = max(xs)
+    y2 = max(ys)
+    # inflat by 10%
+    dx = x2 - x1
+    dy = y2 - y1
+    x1 -= dx * 0.1
+    x2 += dx * 0.1
+    y1 -= dy * 0.1
+    y2 += dy * 0.1
+
     grid = (x2 - x1) / SIZE
     nx = SIZE + 1
     ny = int(round((y2 - y1) / grid)) + 1
+    print("area", x1, y1, x2, y2)
+    print("nx, ny:", nx, ny)
     mat = [[0 for i in range(ny)] for i in range(nx)]
     shift = make_shift(x1, y1, grid)
     for module in jobj["modules"]:

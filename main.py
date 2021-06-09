@@ -78,7 +78,7 @@ def twoify(mat):
     return mat
 
 
-def board2mat(jobj, SIZE, layer):
+def board2mat(jobj, layer):
     #     SIZE = 30
     # FIXME the module center might be outside this area
     # x1, y1, x2, y2 = jobj["area"]
@@ -123,6 +123,7 @@ def board2mat(jobj, SIZE, layer):
 
 
 def scale(mat, nx_target):
+    mat = copy.deepcopy(mat)
     # scale mat
     nx = len(mat)
     ny = len(mat[0])
@@ -194,13 +195,17 @@ def file2mat(fname):
     with open(fname) as fp:
         jobj = json.load(fp)
         for layer in ["F", "B"]:
-            mat = board2mat(jobj, 30, layer)
+            mat = board2mat(jobj, layer)
             if mat:
+                # ------
+                # DATA 1: -[F|B].csv
                 # mat = twoify(mat)
                 # use numpy to save csv
                 np.savetxt(
                     fname + "-" + layer + ".csv", np.array(mat), delimiter=",", fmt="%d"
                 )
+                # ------
+                # DATA 2: -[F|B]-twoify.csv
                 # twoify:
                 np.savetxt(
                     fname + "-" + layer + "-twoify.csv",
@@ -208,6 +213,8 @@ def file2mat(fname):
                     delimiter=",",
                     fmt="%d",
                 )
+                # ------
+                # DATA 3: -[F|B]-scaled.csv
                 # scale to 30 and twoify
                 np.savetxt(
                     fname + "-" + layer + "-scaled.csv",
@@ -215,6 +222,8 @@ def file2mat(fname):
                     delimiter=",",
                     fmt="%d",
                 )
+                # ------
+                # DATA 4: -[F|B]-sampled.csv
                 # sampled by index
                 # get center
                 x, y = np.array(mat).shape

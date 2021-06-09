@@ -14,19 +14,23 @@ done
 
 
 # find all the .kicad_pcb files
-files=`find benchmarks/ -name *.kicad_pcb`
+files=`find benchmarks -name *.kicad_pcb`
 # echo $files
 mkdir -p output
 for f in $files; do
     echo $f
     json="output/${f//\//-}.json"
-    if ! [ -f $json ]; then
-        # if the pathname contains space, the for loop won't pick up the full path
-        if [ -f $f ]; then
-            racket main.rkt $f $json
-            if [[ $! == 0 ]]; then
-                python main.py $json
-            fi
+    # if the pathname contains space, the for loop won't pick up the full path
+    if [ -f $f ]; then
+        # run racket
+        if ! [ -f $json ]; then
+            # DEBUG not running main.rkt
+            # racket main.rkt $f $json
+            echo "skip"
+        fi
+        echo "... $json"
+        if [ -f $json ]; then
+            python3 main.py $json
         fi
     fi
 done

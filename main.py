@@ -1,6 +1,7 @@
 import json
 import copy
 import numpy as np
+import math
 
 
 def vis(mat):
@@ -105,16 +106,50 @@ def board2mat(jobj, SIZE, layer):
     y1 -= dy * 0.1
     y2 += dy * 0.1
 
-    grid = (x2 - x1) / SIZE
-    nx = SIZE + 1
+    # grid = (x2 - x1) / SIZE
+    # nx = SIZE + 1
+    #
+    # DEBUG using fixed grid
+    grid = 0.5
+    nx = int(round((x2 - x1) / grid)) + 1
     ny = int(round((y2 - y1) / grid)) + 1
-    print("area", x1, y1, x2, y2)
-    print("nx, ny:", nx, ny)
+    # print("area", x1, y1, x2, y2)
+    # print("nx, ny:", nx, ny)
     mat = [[0 for i in range(ny)] for i in range(nx)]
     shift = make_shift(x1, y1, grid)
     for module in jobj["modules"]:
         add_to_matrix(mat, module, layer, shift)
     return mat
+
+
+def scale(mat, nx_target):
+    # scale mat
+    nx = len(mat)
+    ny = len(mat[0])
+    # factor
+    factor = nx / (nx_target - 1)
+    ny_target = int(round(ny / factor)) + 1
+    # print("scaling to ", nx_target, ny_target)
+    # new mat
+    res = [[0 for _ in range(ny_target)] for _ in range(nx_target)]
+
+    for i in range(nx):
+        for j in range(ny):
+            ii = int(round(i / factor))
+            jj = int(round(j / factor))
+            # print("ii,jj", ii, jj)
+            # TODO merge? if two points collapse into 1 index, merge it.
+            # e.g. net 5, 8 will merge into '{5,8}'
+            #
+            # But I'll need to connect the pads, e..g {2,4} should be connected
+            # to {2,8} to {8,9}
+            #
+            # res[ii][jj] += "-" + str(mat[i][j])
+            #
+            # For now, I'm just replacing it for simplicity. This might create
+            # many dangling single nodes
+            res[ii][jj] = mat[i][j]
+    return res
 
 
 def file2mat(fname):
@@ -123,10 +158,32 @@ def file2mat(fname):
         for layer in ["F", "B"]:
             mat = board2mat(jobj, 30, layer)
             if mat:
-                mat = twoify(mat)
+                # mat = twoify(mat)
                 # use numpy to save csv
                 np.savetxt(
                     fname + "-" + layer + ".csv", np.array(mat), delimiter=",", fmt="%d"
+                )
+                # twoify:
+                np.savetxt(
+                    fname + "-" + layer + "-twoify.csv",
+                    np.array(twoify(mat)),
+                    delimiter=",",
+                    fmt="%d",
+                )
+                # scale to 30 and twoify
+                np.savetxt(
+                    fname + "-" + layer + "-scaled.csv",
+                    np.array(twoify(scale(mat, 30))),
+                    delimiter=",",
+                    fmt="%d",
+                )
+                # sampled by index
+                sample = np.array(mat)[10:40, 10:40].tolist()
+                np.savetxt(
+                    fname + "-" + layer + "-sampled.csv",
+                    np.array(twoify(sample)),
+                    delimiter=",",
+                    fmt="%d",
                 )
 
 

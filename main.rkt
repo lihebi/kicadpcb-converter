@@ -24,7 +24,8 @@
            (area ,x1 ,y1 ,x2 ,y2)
            ,_ ...)
           ,_ ...)
-         (list x1 y1 x2 y2)]))
+         (list x1 y1 x2 y2)]
+        [_ (list 0 0 0 0)]))
 
 ;; module has shape and pads, pad belong to 0 or 1 netlist
 (define (module-clause->module module-clause)
@@ -45,6 +46,7 @@
                       ,_ ...
                       (layers ,layers ...)
                       ;; there might be a net OR NOT
+                      ,(not `(net ,_ ...)) ...
                       (net ,netId ,_) ...
                       )
                  ;; FIXME some modules might not have pads

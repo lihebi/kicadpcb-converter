@@ -1,0 +1,16 @@
+{
+  "id": "CPyXEVbYUajr",
+  "type": "CODE",
+  "lang": "python",
+  "parent": "CP8agycaX3Hx",
+  "children": [],
+  "content": "\"def scale(mat, nx_target):\\n    mat = copy.deepcopy(mat)\\n    # scale mat\\n    nx = len(mat)\\n    ny = len(mat[0])\\n    # factor\\n    factor = nx / (nx_target - 1)\\n    ny_target = int(round(ny / factor)) + 1\\n    # print(\\\"scaling to \\\", nx_target, ny_target)\\n    # new mat\\n    res = [[set() for _ in range(ny_target)] for _ in range(nx_target)]\\n    res1 = [[0 for _ in range(ny_target)] for _ in range(nx_target)]\\n\\n    for i in range(nx):\\n        for j in range(ny):\\n            ii = int(round(i / factor))\\n            jj = int(round(j / factor))\\n            # print(\\\"ii,jj\\\", ii, jj)\\n            # TODO merge? if two points collapse into 1 index, merge it.\\n            # e.g. net 5, 8 will merge into '{5,8}'\\n            #\\n            # But I'll need to connect the pads, e..g {2,4} should be connected\\n            # to {2,8} to {8,9}\\n            #\\n            # res[ii][jj] += \\\"-\\\" + str(mat[i][j])\\n            #\\n            # For now, I'm just replacing it for simplicity. This might create\\n            # many dangling single nodes\\n            if mat[i][j] == 1:\\n                res1[ii][jj] = 1\\n            elif mat[i][j] == 0:\\n                pass\\n            else:\\n                res[ii][jj].add(mat[i][j])\\n    # merge\\n    h = {}\\n\\n    def find(x):\\n        if x in h:\\n            return find(h[x])\\n        else:\\n            return x\\n\\n    def union(x, y):\\n        x = find(x)\\n        y = find(y)\\n        if x != y:\\n            h[x] = y\\n\\n    # construct disjoint set\\n    for row in res:\\n        for s in row:\\n            if s:\\n                x = s.pop()\\n                for y in s:\\n                    union(x, y)\\n                # Add it back, this is ugly\\n                s.add(x)\\n    # convert the matrix\\n    for i in range(len(res)):\\n        for j in range(len(res[i])):\\n            if not res[i][j]:\\n                # 0 or 1\\n                res[i][j] = res1[i][j]\\n            else:\\n                res[i][j] = find(res[i][j].pop())\\n    return res\"",
+  "imports": "{}",
+  "exports": "{}",
+  "reexports": "{}",
+  "midports": "{}",
+  "fold": false,
+  "thundar": false,
+  "utility": false,
+  "name": ""
+}

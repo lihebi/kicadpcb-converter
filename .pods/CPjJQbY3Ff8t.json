@@ -1,0 +1,17 @@
+{
+  "id": "CPjJQbY3Ff8t",
+  "type": "CODE",
+  "lang": "python",
+  "parent": "CP8agycaX3Hx",
+  "children": [],
+  "content": "\"def make_shift(x1, y1, grid):\\n    def shift(x, y):\\n        x = round((x - x1) / grid)\\n        y = round((y - y1) / grid)\\n        return x, y\\n\\n    return shift\"",
+  "imports": "{}",
+  "exports": "{}",
+  "reexports": "{}",
+  "midports": "{}",
+  "fold": false,
+  "thundar": false,
+  "utility": false,
+  "name": "",
+  "column": null
+}

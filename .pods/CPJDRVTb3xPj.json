@@ -1,0 +1,16 @@
+{
+  "id": "CPJDRVTb3xPj",
+  "type": "CODE",
+  "lang": "python",
+  "parent": "CP8agycaX3Hx",
+  "children": [],
+  "content": "\"\\ndef twoify(mat):\\n    # step 1: separate into 2-pairs with string name\\n    mat = copy.deepcopy(mat)\\n    h = {}\\n    recorded = set()\\n    for row in mat:\\n        for i in range(len(row)):\\n            v = row[i]\\n            if v != 0 and v != 1:\\n                if v in h:\\n                    if v in recorded:\\n                        recorded.remove(v)\\n                    else:\\n                        h[v] += 1\\n                        recorded.add(v)\\n                else:\\n                    h[v] = 1\\n                    recorded.add(v)\\n                row[i] = str(v) + \\\"-\\\" + str(h[v])\\n    # single ones\\n    singles = set()\\n    for v in recorded:\\n        singles.add(str(v) + \\\"-\\\" + str(h[v]))\\n    # step 2: map string names to integer\\n    h = {}\\n    ct = 2\\n    # FIXME I might want to randomly get 2-pairs\\n    for row in mat:\\n        for i in range(len(row)):\\n            v = row[i]\\n            if v != 0 and v != 1:\\n                # the recorded ones are not paired\\n                if v in singles:\\n                    h[v] = 1\\n                # assign a larger number\\n                elif v not in h:\\n                    h[v] = ct\\n                    ct += 1\\n                row[i] = h[v]\\n    return mat\"",
+  "imports": "{}",
+  "exports": "{}",
+  "reexports": "{}",
+  "midports": "{}",
+  "fold": false,
+  "thundar": false,
+  "utility": false,
+  "name": ""
+}

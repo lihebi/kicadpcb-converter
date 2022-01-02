@@ -1,0 +1,17 @@
+{
+  "id": "CP4PXTjmC9dJ",
+  "type": "CODE",
+  "column": 1,
+  "lang": "python",
+  "parent": "CPaFKbXxpkfF",
+  "children": [],
+  "content": "\"fname = '/Users/hebi/Library/Application Support/codepod/repos/kicadpcb-converter/output/benchmarks-wiflier-wiflier8285-wiflier8285.kicad_pcb.json'\"",
+  "imports": "{}",
+  "exports": "{}",
+  "reexports": "{}",
+  "midports": "{}",
+  "fold": false,
+  "thundar": false,
+  "utility": false,
+  "name": ""
+}

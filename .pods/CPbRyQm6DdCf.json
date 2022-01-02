@@ -1,0 +1,16 @@
+{
+  "id": "CPbRyQm6DdCf",
+  "type": "CODE",
+  "parent": "CP8agycaX3Hx",
+  "children": [],
+  "content": "\"import os\\nos.getcwd()\"",
+  "lang": "python",
+  "imports": "{}",
+  "exports": "{}",
+  "reexports": "{}",
+  "midports": "{}",
+  "fold": false,
+  "thundar": false,
+  "utility": false,
+  "name": ""
+}

@@ -1,0 +1,16 @@
+{
+  "id": "CPQb46Ab7NnT",
+  "type": "CODE",
+  "lang": "python",
+  "parent": "CP8agycaX3Hx",
+  "children": [],
+  "content": "\"def add_to_matrix(mat, module, layer, shift):\\n    for pad in module[\\\"pads\\\"]:\\n        if layer in pad[\\\"layers\\\"]:\\n            x = pad[\\\"x\\\"] + module[\\\"x\\\"]\\n            y = pad[\\\"y\\\"] + module[\\\"y\\\"]\\n            x, y = shift(x, y)\\n            if pad[\\\"net\\\"]:\\n                mat[x][y] = pad[\\\"net\\\"]\\n            else:\\n                # thet net is not connected, set to 1\\n                mat[x][y] = 1\"",
+  "imports": "{}",
+  "exports": "{}",
+  "reexports": "{}",
+  "midports": "{}",
+  "fold": false,
+  "thundar": false,
+  "utility": false,
+  "name": ""
+}

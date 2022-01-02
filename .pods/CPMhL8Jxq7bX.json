@@ -1,0 +1,17 @@
+{
+  "id": "CPMhL8Jxq7bX",
+  "type": "CODE",
+  "lang": "python",
+  "parent": "CP8agycaX3Hx",
+  "children": [],
+  "content": "\"def vis(mat):\\n    for row in mat:\\n        for v in row:\\n            print(\\\"{:>2}\\\".format(v), end=\\\" \\\")\\n        print(\\\"\\\")\"",
+  "imports": "{}",
+  "exports": "{}",
+  "reexports": "{}",
+  "midports": "{}",
+  "fold": false,
+  "thundar": false,
+  "utility": false,
+  "name": "",
+  "column": null
+}

@@ -1,0 +1,19 @@
+{
+  "id": "CPH3LJHqJR6k",
+  "type": "DECK",
+  "column": 3,
+  "lang": "python",
+  "parent": "ROOT",
+  "children": [
+    "CPJVMVGMFrPV"
+  ],
+  "content": "\"\"",
+  "imports": "{}",
+  "exports": "{}",
+  "reexports": "{}",
+  "midports": "{}",
+  "fold": false,
+  "thundar": false,
+  "utility": false,
+  "name": ""
+}

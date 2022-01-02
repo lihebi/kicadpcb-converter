@@ -1,0 +1,17 @@
+{
+  "id": "CPgfqtmbCxiG",
+  "type": "CODE",
+  "lang": "python",
+  "parent": "CP8agycaX3Hx",
+  "children": [],
+  "content": "\"@export board2mat\\ndef board2mat(jobj):\\n    #     SIZE = 30\\n    # FIXME the module center might be outside this area\\n    # x1, y1, x2, y2 = jobj[\\\"area\\\"]\\n    #\\n    # I'm going to use just the modules instead. So get the smallest and largest\\n    # x and y, and inflate by 10% each side.\\n    xs = []\\n    ys = []\\n    for module in jobj[\\\"modules\\\"]:\\n        for pad in module[\\\"pads\\\"]:\\n            xs.append(module[\\\"x\\\"] + pad[\\\"x\\\"])\\n            ys.append(module[\\\"y\\\"] + pad[\\\"y\\\"])\\n    if not xs or not ys:\\n        print(\\\"Warning: no pads found\\\")\\n        return None\\n    x1 = min(xs)\\n    y1 = min(ys)\\n    x2 = max(xs)\\n    y2 = max(ys)\\n    # inflat by 10%\\n    dx = x2 - x1\\n    dy = y2 - y1\\n    x1 -= dx * 0.1\\n    x2 += dx * 0.1\\n    y1 -= dy * 0.1\\n    y2 += dy * 0.1\\n\\n    # grid = (x2 - x1) / SIZE\\n    # nx = SIZE + 1\\n    #\\n    # DEBUG using fixed grid\\n    grid = 0.5\\n    nx = int(round((x2 - x1) / grid)) + 1\\n    ny = int(round((y2 - y1) / grid)) + 1\\n    # print(\\\"area\\\", x1, y1, x2, y2)\\n    # print(\\\"nx, ny:\\\", nx, ny)\\n    res = ''\\n    res += 'GridBoundaryIdx 1 1 {} {}\\\\n'.format(nx, ny)\\n    res += 'CircuitSize 100 100\\\\n'\\n    res += 'NumLayer 2\\\\n'\\n    # get the nets and layers\\n    nets = defaultdict(set)\\n    shift = make_shift(x1, y1, grid)\\n    for module in jobj[\\\"modules\\\"]:\\n        for pad in module['pads']:\\n            x = pad[\\\"x\\\"] + module[\\\"x\\\"]\\n            y = pad[\\\"y\\\"] + module[\\\"y\\\"]\\n            x, y = shift(x, y)\\n            if pad[\\\"net\\\"]:\\n                if 'F' in pad['layers']:\\n                    nets[pad[\\\"net\\\"]].add((x,y,0))\\n                if 'B' in pad['layers']:\\n                    nets[pad[\\\"net\\\"]].add((x,y,1))\\n    res += 'NumNets {}\\\\n'.format(len(nets))\\n    for net in nets:\\n        res += 'Net N{} {} 0.5\\\\n'.format(net, len(nets[net]))\\n        for x,y,layer in nets[net]:\\n            res += 'Pin {} {} {}\\\\n'.format(x, y, layer)\\n    return res\"",
+  "imports": "{}",
+  "exports": "{\"board2mat\":[]}",
+  "reexports": "{}",
+  "midports": "{}",
+  "fold": false,
+  "thundar": false,
+  "utility": false,
+  "name": "",
+  "column": null
+}

@@ -1,0 +1,17 @@
+{
+  "id": "CPzggXMEhfrm",
+  "type": "CODE",
+  "column": 1,
+  "lang": "python",
+  "parent": "CPaFKbXxpkfF",
+  "children": [],
+  "content": "\"with open(fname) as fp:\\n    jobj = json.load(fp)\"",
+  "imports": "null",
+  "exports": "{}",
+  "reexports": "{}",
+  "midports": "null",
+  "fold": null,
+  "thundar": null,
+  "utility": null,
+  "name": null
+}

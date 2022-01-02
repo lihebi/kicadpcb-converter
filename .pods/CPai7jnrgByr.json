@@ -1,0 +1,17 @@
+{
+  "id": "CPai7jnrgByr",
+  "type": "CODE",
+  "column": null,
+  "lang": "python",
+  "parent": "ROOT",
+  "children": [],
+  "content": "\"board2mat\"",
+  "imports": "{}",
+  "exports": "{}",
+  "reexports": "{}",
+  "midports": "{}",
+  "fold": false,
+  "thundar": false,
+  "utility": false,
+  "name": ""
+}

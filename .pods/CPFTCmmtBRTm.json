@@ -1,0 +1,17 @@
+{
+  "id": "CPFTCmmtBRTm",
+  "type": "CODE",
+  "column": 1,
+  "lang": "racket",
+  "parent": "CPaPCjkU9dff",
+  "children": [],
+  "content": "\"@export module-clause->module\\n(define (module-clause->module module-clause)\\n  (match module-clause\\n    [`(module ,name\\n              ;; CAUTION there might be a \\\"locked\\\" item\\n              ,_ ...\\n              (layer ,layer)\\n              ,_ ...\\n              ;; FIXME z?\\n              (at ,x ,y ,z ...)\\n              ,(not `(pad ,_ ...)) ...\\n              (pad ,_\\n                   ,type\\n                   ,shape\\n                   ;; FIXME padz\\n                   (at ,padx ,pady ,padz ...)\\n                   ,_ ...\\n                   (layers ,layers ...)\\n                   ;; there might be a net OR NOT\\n                   ,(not `(net ,_ ...)) ...\\n                   (net ,netId ,_) ...\\n                   )\\n              ;; FIXME some modules might not have pads\\n              ...\\n              ,_ ...\\n              )\\n      ;; module\\n      (hash 'x x\\n            'y y\\n            'pads \\n            (for/list ([t type]\\n                       [s shape]\\n                       [x padx]\\n                       [y pady]\\n                       [net netId]\\n                       [l layers])\\n              (hash 'type (symbol->string t)\\n                    'shape (symbol->string s)\\n                    'x x\\n                    'y y\\n                    'net (if (empty? net) null (first net))\\n                    'layers\\n                    (begin \\n                      (let ([res '()])\\n                        (when (or (member 'F.Cu l)\\n                                  (member '*.Cu l))\\n                              (set! res (append res '(\\\"F\\\"))))\\n                        (when (or (member 'B.Cu l)\\n                                  (member '*.Cu l))\\n                              (set! res (append res '(\\\"B\\\"))))\\n                        res)\\n\\n                      ))\\n              ))\\n      ]))\"",
+  "imports": "{}",
+  "exports": "{\"module-clause->module\":[]}",
+  "reexports": "{}",
+  "midports": "{}",
+  "fold": false,
+  "thundar": false,
+  "utility": false,
+  "name": ""
+}

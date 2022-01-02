@@ -1,0 +1,22 @@
+{
+  "id": "CPQChjK3FiKm",
+  "type": "DECK",
+  "column": 1,
+  "lang": "python",
+  "parent": "CP8agycaX3Hx",
+  "children": [
+    "CPYVBbH3yXmK",
+    "CPLchmydpzWa",
+    "CPF6pJV9mGtN",
+    "CPijE7fDXrBh"
+  ],
+  "content": "\"\"",
+  "imports": "{}",
+  "exports": "{}",
+  "reexports": "{}",
+  "midports": "{}",
+  "fold": false,
+  "thundar": true,
+  "utility": false,
+  "name": ""
+}

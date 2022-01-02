@@ -1,0 +1,17 @@
+{
+  "id": "CPF6pJV9mGtN",
+  "type": "CODE",
+  "column": 1,
+  "lang": "python",
+  "parent": "CPQChjK3FiKm",
+  "children": [],
+  "content": "\"with open(os.path.join(output_dir, fname)) as fp:\\n    jobj = json.load(fp)\\n\"",
+  "imports": "{}",
+  "exports": "{}",
+  "reexports": "{}",
+  "midports": "{}",
+  "fold": false,
+  "thundar": false,
+  "utility": false,
+  "name": ""
+}

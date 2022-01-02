@@ -1,0 +1,17 @@
+{
+  "id": "CPbUhicyezKt",
+  "type": "CODE",
+  "column": 1,
+  "lang": "racket",
+  "parent": "CPaPCjkU9dff",
+  "children": [],
+  "content": "\"@export kicad->area\\n(define (kicad->area sexp)\\n  (match sexp \\n    [`(kicad_pcb \\n        ,(not `(general ,_ ...)) ...\\n        (general \\n          ,_ ...\\n          (area ,x1 ,y1 ,x2 ,y2)\\n          ,_ ...)\\n        ,_ ...)\\n      (list x1 y1 x2 y2)]\\n    ;  FIXME no area clause, e.g. benchmarks/logicbone/logicbone.kicad_pcb\\n    [_ (list 0 0 0 0)]))\"",
+  "imports": "{}",
+  "exports": "{\"kicad->area\":[]}",
+  "reexports": "{}",
+  "midports": "{}",
+  "fold": false,
+  "thundar": false,
+  "utility": false,
+  "name": ""
+}

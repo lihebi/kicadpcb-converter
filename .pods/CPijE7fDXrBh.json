@@ -1,0 +1,17 @@
+{
+  "id": "CPijE7fDXrBh",
+  "type": "CODE",
+  "column": 1,
+  "lang": "python",
+  "parent": "CPQChjK3FiKm",
+  "children": [],
+  "content": "\"print(board2mat(jobj, 0.1))\"",
+  "imports": "{}",
+  "exports": "{}",
+  "reexports": "{}",
+  "midports": "{}",
+  "fold": false,
+  "thundar": false,
+  "utility": false,
+  "name": ""
+}

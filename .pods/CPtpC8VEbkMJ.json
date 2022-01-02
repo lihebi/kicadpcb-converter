@@ -1,0 +1,17 @@
+{
+  "id": "CPtpC8VEbkMJ",
+  "type": "CODE",
+  "lang": "racket",
+  "parent": "CPaPCjkU9dff",
+  "children": [],
+  "content": "\"\\n(require racket/pretty)\\n(require racket/list)\\n(require racket/match)\\n(require json)\\n(require racket/math)\\n(require racket/format)\\n(require racket/string)\"",
+  "column": 1,
+  "imports": "{}",
+  "exports": "{}",
+  "reexports": "{}",
+  "midports": "{}",
+  "fold": false,
+  "thundar": false,
+  "utility": false,
+  "name": ""
+}

@@ -1,0 +1,28 @@
+{
+  "id": "CPaPCjkU9dff",
+  "type": "DECK",
+  "lang": "racket",
+  "parent": "CPDYwy97DFHG",
+  "children": [
+    "CPtpC8VEbkMJ",
+    "CPmF4UyAqgTp",
+    "CPbUhicyezKt",
+    "CPFTCmmtBRTm",
+    "CPcwVgCDjLLx",
+    "CPw4pEjqkVPq",
+    "CPaUyT7TttWz",
+    "CPCKUhmhwKwe",
+    "CPEGnAzCXH4U",
+    "CPyArnqh6QmD"
+  ],
+  "content": "\"\"",
+  "column": 3,
+  "imports": "{}",
+  "exports": "{}",
+  "reexports": "{}",
+  "midports": "{}",
+  "fold": false,
+  "thundar": false,
+  "utility": false,
+  "name": ""
+}

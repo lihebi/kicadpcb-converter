@@ -1,0 +1,21 @@
+{
+  "id": "CPDYwy97DFHG",
+  "type": "DECK",
+  "column": 1,
+  "lang": "racket",
+  "parent": "ROOT",
+  "children": [
+    "CPbrcBEjxDEL",
+    "CPaPCjkU9dff",
+    "CPdrLkWmUFJj"
+  ],
+  "content": "\"\"",
+  "imports": "{}",
+  "exports": "{}",
+  "reexports": "{}",
+  "midports": "{}",
+  "fold": false,
+  "thundar": false,
+  "utility": false,
+  "name": ""
+}

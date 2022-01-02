@@ -1,0 +1,17 @@
+{
+  "id": "CPw4pEjqkVPq",
+  "type": "CODE",
+  "column": 1,
+  "lang": "racket",
+  "parent": "CPaPCjkU9dff",
+  "children": [],
+  "content": "\"@export kicad-file->json\\n(define (kicad-file->json in-fname out-fname)\\n  (define sexp (parse-kicad-pcb in-fname))\\n  ;; clauses\\n  (define clauses (match sexp\\n                    [`(kicad_pcb\\n                        ,clauses ...)\\n                      clauses]))\\n  (define area (kicad->area sexp))\\n  (define modules (kicad->modules sexp))\\n  (call-with-output-file out-fname\\n                         #:exists 'replace\\n                         (lambda (out)\\n                           (write-json (hash 'modules modules\\n                                             'area area)\\n                                       out))))\"",
+  "imports": "{}",
+  "exports": "{\"kicad-file->json\":[]}",
+  "reexports": "{}",
+  "midports": "{}",
+  "fold": false,
+  "thundar": false,
+  "utility": false,
+  "name": ""
+}

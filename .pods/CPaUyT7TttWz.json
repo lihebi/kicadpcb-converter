@@ -1,0 +1,17 @@
+{
+  "id": "CPaUyT7TttWz",
+  "type": "CODE",
+  "column": 1,
+  "lang": "racket",
+  "parent": "CPaPCjkU9dff",
+  "children": [],
+  "content": "\"(define verbose-mode (make-parameter #f))\\n(define profiling-on (make-parameter #f))\\n(define optimize-level (make-parameter 0))\\n(define link-flags (make-parameter null))\"",
+  "imports": "{}",
+  "exports": "{}",
+  "reexports": "{}",
+  "midports": "{}",
+  "fold": false,
+  "thundar": false,
+  "utility": false,
+  "name": ""
+}

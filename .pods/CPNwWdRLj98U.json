@@ -1,0 +1,17 @@
+{
+  "id": "CPNwWdRLj98U",
+  "type": "CODE",
+  "column": 1,
+  "lang": "racket",
+  "parent": "CPEGnAzCXH4U",
+  "children": [],
+  "content": "\"kicad->modules\"",
+  "imports": "{}",
+  "exports": "{}",
+  "reexports": "{}",
+  "midports": "{}",
+  "fold": false,
+  "thundar": false,
+  "utility": false,
+  "name": ""
+}

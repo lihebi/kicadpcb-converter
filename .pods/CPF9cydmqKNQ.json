@@ -1,0 +1,17 @@
+{
+  "id": "CPF9cydmqKNQ",
+  "type": "CODE",
+  "column": 1,
+  "lang": "racket",
+  "parent": "CPEGnAzCXH4U",
+  "children": [],
+  "content": "\";; scan benchmarks folder\\n(define in-fname (build-path repo-dir \\\"benchmarks/logicbone/logicbone.kicad_pcb\\\"))\\n(define sexp (parse-kicad-pcb in-fname))\\n;; clauses\\n(define clauses (match sexp\\n                  [`(kicad_pcb\\n                      ,clauses ...)\\n                    clauses]))\\n(define area (kicad->area sexp))\\narea\\n(define modules (kicad->modules sexp))\"",
+  "imports": "{}",
+  "exports": "{}",
+  "reexports": "{}",
+  "midports": "{}",
+  "fold": false,
+  "thundar": false,
+  "utility": false,
+  "name": ""
+}

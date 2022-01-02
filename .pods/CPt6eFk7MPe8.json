@@ -1,0 +1,17 @@
+{
+  "id": "CPt6eFk7MPe8",
+  "type": "CODE",
+  "column": null,
+  "lang": "racket",
+  "parent": "CPyArnqh6QmD",
+  "children": [],
+  "content": "\"(parameterize ([read-accept-dot #t])\\n            ;   (read-accept-dot)\\n              (read (open-input-string \\\"(fp_text value X (at 0 5.08) (layer F.SilkS) hide\\n      (effects (font (size 1.27 1.524) (thickness 0.2032)))\\n    )\\\")))\\n\"",
+  "imports": "{}",
+  "exports": "{}",
+  "reexports": "{}",
+  "midports": "{}",
+  "fold": false,
+  "thundar": false,
+  "utility": false,
+  "name": ""
+}

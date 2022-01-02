@@ -1,0 +1,17 @@
+{
+  "id": "CPcwVgCDjLLx",
+  "type": "CODE",
+  "column": 1,
+  "lang": "racket",
+  "parent": "CPaPCjkU9dff",
+  "children": [],
+  "content": "\"@export kicad->modules\\n(define (kicad->modules sexp)\\n  (define clauses (match sexp\\n       [`(kicad_pcb\\n          ,clauses ...)\\n         clauses]))\\n  (define module-clauses (filter (lambda (x)\\n              (match x\\n                     [`(module ,_ ...) #t]\\n                     [else #f]))\\n        clauses))\\n  (define modules\\n      (for/list ([c module-clauses]\\n          [i (in-naturals)])\\n         (module-clause->module c)))\\n  modules\\n  )\\n\"",
+  "imports": "{}",
+  "exports": "{\"kicad->modules\":[]}",
+  "reexports": "{}",
+  "midports": "{}",
+  "fold": false,
+  "thundar": false,
+  "utility": false,
+  "name": ""
+}

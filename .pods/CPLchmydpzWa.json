@@ -1,0 +1,17 @@
+{
+  "id": "CPLchmydpzWa",
+  "type": "CODE",
+  "column": 1,
+  "lang": "python",
+  "parent": "CPQChjK3FiKm",
+  "children": [],
+  "content": "\"output_dir = '/Users/hebi/Library/Application Support/codepod/repos/kicadpcb-converter/output'\\n\\nfname = 'benchmarks-1bitsy-hardware-1bitsy-v1.0d-1bitsy-rr.kicad_pcb.json'\"",
+  "imports": "{}",
+  "exports": "{}",
+  "reexports": "{}",
+  "midports": "{}",
+  "fold": false,
+  "thundar": false,
+  "utility": false,
+  "name": ""
+}

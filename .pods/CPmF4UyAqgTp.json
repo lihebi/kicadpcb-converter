@@ -1,0 +1,17 @@
+{
+  "id": "CPmF4UyAqgTp",
+  "type": "CODE",
+  "column": 1,
+  "lang": "racket",
+  "parent": "CPaPCjkU9dff",
+  "children": [],
+  "content": "\"@export parse-kicad-pcb\\n(define (parse-kicad-pcb fname)\\n    (let ([sexp (call-with-input-file fname\\n            (lambda (in)\\n                (read in)))])\\n        sexp))\\n\"",
+  "imports": "{}",
+  "exports": "{\"parse-kicad-pcb\":[]}",
+  "reexports": "{}",
+  "midports": "{}",
+  "fold": false,
+  "thundar": false,
+  "utility": false,
+  "name": ""
+}

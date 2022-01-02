@@ -1,0 +1,17 @@
+{
+  "id": "CPbLkyBTeJcC",
+  "type": "CODE",
+  "lang": "racket",
+  "parent": "CPyArnqh6QmD",
+  "children": [],
+  "content": "\"(module-clause->module \\n  '(module pkl_dipol:C_0402 (layer F.Cu) (tedit 57C1F81B) (tstamp 5743A13C)\\n           (at 115.73 50.72 270)\\n           (descr \\\"Capacitor SMD 0402, reflow soldering\\\")\\n           (tags \\\"capacitor 0402\\\")\\n           (path /57436262)\\n           (attr smd)\\n           (fp_text reference C12 (at 0 -1.1 270) (layer F.Fab)\\n                    (effects (font (size 0.635 0.635) (thickness 0.1)))\\n                    )\\n           (fp_text value 100n (at 0 0 270) (layer F.Fab)\\n                    (effects (font (size 0.5 0.5) (thickness 0.1)))\\n                    )\\n           (fp_circle (center 0 0) (end 0 -0.085) (layer F.SilkS) (width 0.17))\\n           (fp_line (start -0.95 -0.5) (end 0.95 -0.5) (layer F.CrtYd) (width 0.05))\\n           (fp_line (start -0.95 0.5) (end 0.95 0.5) (layer F.CrtYd) (width 0.05))\\n           (fp_line (start -0.95 -0.5) (end -0.95 0.5) (layer F.CrtYd) (width 0.05))\\n           (fp_line (start 0.95 -0.5) (end 0.95 0.5) (layer F.CrtYd) (width 0.05))\\n           (fp_line (start -0.35 -0.44) (end 0.35 -0.44) (layer F.SilkS) (width 0.13))\\n           (fp_line (start 0.35 0.44) (end -0.35 0.44) (layer F.SilkS) (width 0.13))\\n           (pad 1 smd roundrect (at -0.5 0 270) (size 0.5 0.6) (layers F.Cu F.Paste F.Mask) (roundrect_rratio 0.25)\\n                (net 5 +3V3))\\n           (pad 2 smd roundrect (at 0.5 0 270) (size 0.5 0.6) (layers F.Cu F.Paste F.Mask)(roundrect_rratio 0.25)\\n                (net 2 GND))\\n           (model Capacitors_SMD.3dshapes/C_0402.wrl\\n                  (at (xyz 0 0 0))\\n                  (scale (xyz 1 1 1))\\n                  (rotate (xyz 0 0 0))\\n                  )\\n           ))\"",
+  "column": null,
+  "imports": "null",
+  "exports": "{}",
+  "reexports": "{}",
+  "midports": "null",
+  "fold": null,
+  "thundar": null,
+  "utility": null,
+  "name": null
+}

@@ -1,0 +1,21 @@
+{
+  "id": "CPEGnAzCXH4U",
+  "type": "DECK",
+  "column": 1,
+  "lang": "racket",
+  "parent": "CPaPCjkU9dff",
+  "children": [
+    "CPtwt4gBAXPr",
+    "CPNwWdRLj98U",
+    "CPF9cydmqKNQ"
+  ],
+  "content": "null",
+  "imports": "null",
+  "exports": "null",
+  "reexports": "null",
+  "midports": "null",
+  "fold": null,
+  "thundar": true,
+  "utility": null,
+  "name": null
+}

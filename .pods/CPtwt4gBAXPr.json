@@ -1,0 +1,17 @@
+{
+  "id": "CPtwt4gBAXPr",
+  "type": "CODE",
+  "column": 1,
+  "lang": "racket",
+  "parent": "CPEGnAzCXH4U",
+  "children": [],
+  "content": "\";; regen json files\\n;; scan through benchmarks folder\\n;; for each kicad file, call this function and place it in the output folder\\n\\n(define repo-dir \\\"/Users/hebi/Library/Application Support/codepod/repos/kicadpcb-converter/\\\")\\n\\n\"",
+  "imports": "{}",
+  "exports": "{}",
+  "reexports": "{}",
+  "midports": "{}",
+  "fold": false,
+  "thundar": false,
+  "utility": false,
+  "name": ""
+}

@@ -1,0 +1,4 @@
+GridBoundaryIdx 1 1 961 1395
+CircuitSize 100 100
+NumLayer 2
+NumNets 0

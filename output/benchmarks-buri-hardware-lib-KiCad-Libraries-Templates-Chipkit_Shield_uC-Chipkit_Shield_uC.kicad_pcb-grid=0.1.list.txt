@@ -1,0 +1,18 @@
+GridBoundaryIdx 1 1 628 733
+CircuitSize 100 100
+NumLayer 2
+NumNets 2
+Net N1 8 0.5
+Pin 294 620 1
+Pin 549 341 0
+Pin 268 620 0
+Pin 202 213 1
+Pin 294 620 0
+Pin 202 213 0
+Pin 549 341 1
+Pin 268 620 1
+Net N2 4 0.5
+Pin 574 366 0
+Pin 574 366 1
+Pin 202 188 0
+Pin 202 188 1

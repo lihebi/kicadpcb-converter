@@ -1,0 +1,42 @@
+GridBoundaryIdx 1 1 202 346
+CircuitSize 100 100
+NumLayer 2
+NumNets 6
+Net N1 3 0.5
+Pin 171 206 0
+Pin 171 206 1
+Pin 164 196 0
+Net N4 8 0.5
+Pin 47 29 1
+Pin 184 206 1
+Pin 117 289 0
+Pin 47 29 0
+Pin 184 206 0
+Pin 147 216 0
+Pin 164 216 0
+Pin 117 289 1
+Net N2 5 0.5
+Pin 145 196 0
+Pin 92 289 0
+Pin 72 29 1
+Pin 92 289 1
+Pin 72 29 0
+Net N5 4 0.5
+Pin 117 29 0
+Pin 117 29 1
+Pin 47 289 0
+Pin 47 289 1
+Net N6 4 0.5
+Pin 92 29 0
+Pin 92 29 1
+Pin 72 289 0
+Pin 72 289 1
+Net N3 8 0.5
+Pin 139 50 0
+Pin 148 316 1
+Pin 25 50 1
+Pin 25 50 0
+Pin 17 316 1
+Pin 148 316 0
+Pin 139 50 1
+Pin 17 316 0
